@@ -1,0 +1,7 @@
+require('sinatra/activerecord')
+require('sinatra')
+require('sinatra/reloader')
+require('./lib/event')
+require('./lib/attendee')
+also_reload('lib/**/*.rb')
+require("pg")
