@@ -1,0 +1,7 @@
+  development:
+    adapter: postgresql
+    database: event_development
+
+  test:
+    adapter: postgresql
+    database: event_test
