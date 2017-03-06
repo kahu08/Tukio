@@ -4,7 +4,7 @@ class CreateAttendees < ActiveRecord::Migration[5.0]
       t.column(:name, :string)
       t.column(:number, :integer)
 
-      timestamps()
+      t.timestamps()
     end
   end
 end
