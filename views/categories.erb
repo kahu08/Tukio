@@ -1,0 +1,16 @@
+<h1>All Categories:</h1>
+
+  <% if @category.any?() %>
+    <h3>Here are your categories:</h3>
+
+    <ul>
+      <% @category.each() do |category| %>
+        <li><a href="/categories/<%= category.id()%>"><%= category.categorie_name() %></a> </li>
+      <% end %>
+    </ul>
+
+  <% else %>
+
+      <p>There are no categories yet!</p>
+
+  <% end %>
