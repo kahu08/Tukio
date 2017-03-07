@@ -1,0 +1,20 @@
+<form class="attendeeForm" action="/attendees" method="post">
+    <label for="event_id">select an event</label>
+    <select class="" name="event_id" type="text">
+        <%@events.each() do |event|%>
+        <option value="<%event.id%>">
+            <%=event.event_name()%>
+        </option>
+        <%end%>
+    </select>
+
+<br>
+<br>
+<label>
+    <input type="text" name="name" required/>
+    <p>Name</p>
+    <input type="integer" name="number" required/>
+    <p>Number</p>
+</label>
+<button type="submit">Submit</button>
+</form>

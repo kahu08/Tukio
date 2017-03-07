@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.column(:time, :time)
       t.column(:location, :string)
       t.column(:fee, :integer)
-      
+
       t.timestamps()
     end
   end
