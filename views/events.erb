@@ -1,0 +1,14 @@
+
+<% if @events.any?() %>
+
+    <ul>
+      <% @events.each() do |event| %>
+      <li><a href="/events/<%= event.id()%>"><li><%= event.event_name() %> </a></li>
+      <% end %>
+    </ul>
+
+    <% else %>
+
+          <p>There are no lists yet!</p>
+
+      <% end %>
