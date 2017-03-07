@@ -9,6 +9,7 @@ require("pg")
 
 
 
+
 get ("/event/new") do
   @categories=Categorie.all()
 erb(:event_form)
@@ -30,4 +31,25 @@ end
 get("/events/:id") do
   @events = Event.find(params.fetch("id").to_i())
   erb(:event)
+
+get('/categories/new')do
+  erb(:category_form)
+end
+
+post('/categories')do
+  name = params.fetch("categorie_name")
+  category = Categorie.new({:categorie_name => name})
+  category.save()
+  erb(:success)
+end
+
+get('/categories')do
+@category = Categorie.all()
+  erb(:categories)
+end
+
+get('/categories/:id')do
+@category = Categorie.find(params.fetch("id").to_i())
+  erb(:category)
+
 end
