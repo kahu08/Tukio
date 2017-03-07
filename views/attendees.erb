@@ -1,0 +1,12 @@
+<h2 style="font-family: 'Satisfy', cursive; font-size:47px;">Here are the attendees</h2>
+
+<%if @attendees.any?() %>
+<ul  id="list">
+  <% @attendees.each do |attendee| %>
+  <li><%= attendee.name()%></li>
+  <% end %>
+</ul>
+<%else %>
+<p>no attendees</p>
+<%end%>
+</div>
