@@ -3,11 +3,11 @@ class CreateEvents < ActiveRecord::Migration[5.0]
     create_table(:events) do |t|
       t.column(:organization, :string)
       t.column(:event_name, :string)
-      t.column(:time, :string)
+      t.column(:time, :time)
       t.column(:location, :string)
       t.column(:fee, :integer)
-
-      timestamps()
+      
+      t.timestamps()
     end
   end
 end
