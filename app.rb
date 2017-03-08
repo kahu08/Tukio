@@ -54,7 +54,6 @@ get("/events/:id") do
   @events = Event.find(params.fetch("id").to_i())
   erb(:event)
 end
-
 get('/categories/new')do
   erb(:category_form)
 end

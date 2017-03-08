@@ -1,1 +1,41 @@
-img {}
+#landing-page-text {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    left: 35%;
+    top: 150px;
+    background-color: rgba(255, 127, 80, 0.7);
+    color: white;
+    padding: 40px;
+    margin: 20px solid white;
+    /*    box-shadow: 2px 2px 50px #ff7f50;
+*/
+}
+
+#landing-page-text h1 {
+    font-size: 100px;
+    font-family: 'Carter One', cursive;
+}
+
+.trial {
+    padding: 10px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.image1 {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("/images/rob-bye-141866.jpg");
+}
+
+.image2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("/images/man.jpg");
+}
+
+.image3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("/images/one.jpg");
+}
+
+.item {
+    background-size: cover;
+    padding: 300px;
+}
