@@ -1,9 +1,9 @@
 <div class="right col-md-8">
     <form class="col-md-6 event_form" action="/event" method="post">
-
-      <select class="" name="categorie_id" type="text">
+    <label for="categorie_id">Select a category</label>
+      <select id='categorie_id' class="" name="categorie_id" type="text">
         <%@categories.each() do |categorie|%>
-        <option value="<%categorie.id%>">
+        <option value="<%=categorie.id()%>">
         <%=categorie.categorie_name()%>
         </option>
         <%end%>

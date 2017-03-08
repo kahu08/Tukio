@@ -10,27 +10,7 @@ require("pg")
 
 
 
-#form for adding attendee to event
-get('/attendees/new') do
-  @events = Event.all()
-  erb(:attendee_form)
-end
 
-#display all attendees
-get('/attendees') do
-  @attendees = Attendee.all()
-  erb(:attendees)
-end
-
-#display the attendee on attendees
-post('/attendees') do
-  name = params.fetch("name")
-  number = params.fetch("number")
-  attendee = Attendee.new({:name => name, :number => number, :id => nil})
-  attendee.save()
-  # @attendees = Attendee.all()
-  erb(:fiti)
-end
 
 get ("/event/new") do
   @categories=Categorie.all()
@@ -39,14 +19,16 @@ end
 
 
 post("/event") do
-    @event_name = params.fetch("event_name")
-    @organization = params.fetch("organization")
-    @time = params.fetch("time")
-    @location = params.fetch("location")
-    @fee = params.fetch("fee").to_i()
-    event = Event.new({:event_name => @event_name, :organization => @organization, :time => @time, :location => @location, :fee => @fee})
+    event_name = params.fetch("event_name")
+    organization = params.fetch("organization")
+    time = params.fetch("time")
+    location = params.fetch("location")
+    fee = params.fetch("fee").to_i()
+    categorie_id = params.fetch("categorie_id").to_i()
+    @categorie = Categorie.find(categorie_id)
+    event = Event.new(:event_name => event_name, :organization => organization, :time => time, :location => location, :fee => fee, :categorie_id =>categorie_id )
     event.save()
-    @events = Event.all()
+    @events =Event.all()
     erb(:events)
 end
 
