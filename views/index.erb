@@ -21,7 +21,7 @@
  -->	      </div>
 	      <div class="item image2">
 <!-- 	        <img src="/images/lewis-ngugi-186309.jpg" alt="..." class="carousel-images">
- -->	        
+ -->
 	      </div>
 	      <div class="item image3">
 <!-- 	        <img src="/images/cody-aulidge-194218.jpg" alt="..." class="carousel-images">
@@ -53,4 +53,24 @@
     </div>
   </div>
 </nav>
+</div>
+
+<div class="categories">
+	<h1>All Categories:</h1>
+
+
+	  <% if @category.any?() %>
+	    <h3>Here are your categories:</h3>
+
+	    <ul>
+	      <% @category.each() do |category| %>
+	        <li><a href="/categories/<%= category.id()%>"><%= category.categorie_name() %></a> </li>
+	      <% end %>
+	    </ul>
+
+	  <% else %>
+
+	      <p>There are no categories yet!</p>
+
+	  <% end %>
 </div>
