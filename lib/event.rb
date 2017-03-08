@@ -1,4 +1,4 @@
 class Event <ActiveRecord::Base
   belongs_to(:categorie)
-  # belongs_to:attendees
+  has_many(:attendees)
 end

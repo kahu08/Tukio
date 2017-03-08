@@ -1,30 +1,28 @@
-Event: <%= @events.event_name() %><br>
-Organizers(sponsors): <%= @events.organization() %><br>
-Date/Time: <%= @events.time() %><br>
-Location: <%= @events.location() %><br>
-Fees: <%= @events.fee() %><br>
+
+Event: <%= @event.event_name() %><br>
+Organizers(sponsors): <%= @event.organization() %><br>
+Date/Time: <%= @event.time() %><br>
+Location: <%= @event.location() %><br>
+Fees: Ksh. <%= @event.fee() %><br>
 
 
 
- <% if @category.event().any?() %>
-    <h3>Here are all the events for category:<%= @category.categorie_name() %> </h3>
 
-    <ul>
-      <% @category.event().each() do |event| %>
-        Event: <%= event.event_name() %><br>
-        Organizers(sponsors): <%= @events.organization() %><br>
-        Date/Time: <%= event.time() %><br>
-        Location: <%= event.location() %><br>
-        Fees: <%= event.fee() %><br>
-    <% end %>
-    </ul>
 
-    <% else %>
-      <h3><strong><%= @category.categorie_name() %>:</strong></h3>
-      <p>There are no events for me!</p>
-    <% end %>
 
-  <div class="container">
-    <a href="/">Home</a>
-    <a href="/categorys">View All categorys</a>
-  </div>
+
+
+<br><br><br>
+<!-- <form class="attendeeForm" action="/attendees" method="post">
+
+  <input name="event_id" id="event_id" type="hidden" value="<%= @event.id()%>">
+
+<label>
+    <input type="text" name="name" required/>
+    <p>Name</p>
+    <input type="integer" name="number" required/>
+    <p>Number</p>
+</label>
+<button type="submit">Submit</button>
+</form> -->
+
