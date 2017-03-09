@@ -16,6 +16,7 @@ get("/") do
   erb(:index)
 end
 
+
 get("/admin") do
   @categories = Categorie.all()
   @events = Event.all()
@@ -28,30 +29,30 @@ get("/events") do
 end
 
 post('/categories')do
- name = params.fetch("categorie_name")
- category = Categorie.new({:categorie_name => name, :id => nil})
- category.save()
- erb(:success)
+  name = params.fetch("categorie_name")
+  category = Categorie.new({:categorie_name => name, :id => nil})
+  category.save()
+  erb(:success)
 end
 
 get('/categories/:id')do
-@category = Categorie.find(params.fetch("id").to_i())
- erb(:category)
+
+  @category = Categorie.find(params.fetch("id").to_i())
+  erb(:category)
 end
 
 post('/event')do
-   organization = params.fetch("organization")
-   event_name = params.fetch("event_name")
-   location = params.fetch("location")
-   fee = params.fetch("fee").to_i()
-   time = params.fetch("time")
-   categorie_id = params.fetch("categorie_id").to_i()
-  #  @categorie = Categorie.find(categorie_id)
-   event = Event.new({:organization => organization,:event_name => event_name, :location => location, :fee => fee, :time => time, :categorie_id =>categorie_id, :id => nil})
-   event.save()
- erb(:success)
+  event_name = params.fetch("event_name")
+  organization = params.fetch("organization")
+  time = params.fetch("time")
+  location = params.fetch("location")
+  fee = params.fetch("fee").to_i()
+  categorie_id = params.fetch("categorie_id").to_i()
+  @categorie = Categorie.find(categorie_id)
+  event = Event.new(:event_name => event_name, :organization => organization, :time => time, :location => location, :fee => fee, :categorie_id =>categorie_id )
+  event.save()
+  erb(:success)
 end
-
 
 get('/event/:id')do 
 
