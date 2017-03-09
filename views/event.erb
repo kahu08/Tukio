@@ -1,26 +1,41 @@
-Event: <%= @event.event_name() %><br>
-Organizers(sponsors): <%= @event.organization() %><br>
-Date/Time: <%= @event.time() %><br>
-Location: <%= @event.location() %><br>
-Fees: Ksh. <%= @event.fee() %><br>
+<div>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/">Tukio</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="/events">Events</a></li>
+	        <li><a href="/admin">Admin</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+</div>
+
+<% if @event.attendees().any?() %>
+   <h3>Here are all the attendee for event:<%= @event.event_name() %> </h3>
+
+   <ul>
+     <% @event.attendees().each() do |attendee| %>
+       <li><%= attendee.name() %>,<%=attendee.number() %> </li>
+     <% end %>
+   </ul>
+
+<% else %>
+     <p>There are no attendees for <%= @event.event_name() %>!</p>
+   <% end %>
 
 
 
+<%= @event.event_name()%>
+<%= @event.organization()%>
 
 
-
-
-
-<br><br><br>
-<!-- <form class="attendeeForm" action="/attendees" method="post">
-
-  <input name="event_id" id="event_id" type="hidden" value="<%= @event.id()%>">
-
-<label>
-    <input type="text" name="name" required/>
-    <p>Name</p>
-    <input type="integer" name="number" required/>
-    <p>Number</p>
-</label>
-<button type="submit">Submit</button>
-</form> -->

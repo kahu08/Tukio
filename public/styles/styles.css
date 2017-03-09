@@ -1,3 +1,6 @@
+
+/*LANDING PAGE STYLING*/
+
 #landing-page-text {
     position: absolute;
     z-index: 1;
@@ -7,9 +10,8 @@
     background-color: rgba(255, 127, 80, 0.7);
     color: white;
     padding: 40px;
-    margin: 20px solid white;
-    /*    box-shadow: 2px 2px 50px #ff7f50;
-*/
+    margin: 20px;
+
 }
 
 #landing-page-text h1 {
@@ -17,11 +19,18 @@
     font-family: 'Carter One', cursive;
 }
 
-.trial {
-    padding: 10px;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
+h2 {
+    text-align: center;
+    font-family: 'Carter One', cursive;
 }
+
+.trial {
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+}
+
+
+/*carousel images with overlay*/
 
 .image1 {
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("/images/rob-bye-141866.jpg");
@@ -39,3 +48,303 @@
     background-size: cover;
     padding: 300px;
 }
+
+
+/*END*/
+
+
+/* NAVBAR STYLING */
+
+.navbar-default {
+    background-color: white;
+    border: 0;
+    border-bottom: 2px solid #067BC2;
+    border-radius: 0;
+    padding: 5px;
+}
+
+
+/* title */
+
+.navbar-default .navbar-brand {
+    color: #067BC2;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Carter One', cursive;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #FF7F50;
+}
+
+
+/* link */
+
+.navbar-default .navbar-nav > li > a {
+    color: #067BC2;
+    font-size: 17px;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: white;
+    background-color: #FF7F50;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+
+/*END*/
+
+/*INDEX PAGE STYLING*/
+.business-text {
+	position: absolute;
+	z-index: 1;
+	text-align: center;
+}
+
+.business img {
+	max-width: 100px;
+}
+
+/*END*/
+
+/*FORM STYLING*/
+
+.forms {
+    margin: 54.5px;
+}
+
+form {
+    text-align: center;
+}
+
+label {
+    display: block;
+    letter-spacing: 2px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+label .label-text {
+    color: #9B9B9B;
+    cursor: text;
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: uppercase;
+    -moz-transform: translateY(-34px);
+    -ms-transform: translateY(-34px);
+    -webkit-transform: translateY(-34px);
+    transform: translateY(-34px);
+    transition: all 0.3s;
+}
+
+label input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid #333333;
+    color: black;
+    font-size: 36px;
+    letter-spacing: -1px;
+    outline: 0;
+    padding: 5px 20px;
+    text-align: center;
+    transition: all 0.3s;
+    width: 200px;
+}
+
+label input:focus {
+    max-width: 100%;
+    width: 400px;
+}
+
+label input:focus + .label-text {
+    color: #F0F0F0;
+    font-size: 13px;
+    -moz-transform: translateY(-74px);
+    -ms-transform: translateY(-74px);
+    -webkit-transform: translateY(-74px);
+    transform: translateY(-74px);
+}
+
+label input:valid + .label-text {
+    font-size: 13px;
+    -moz-transform: translateY(-74px);
+    -ms-transform: translateY(-74px);
+    -webkit-transform: translateY(-74px);
+    transform: translateY(-74px);
+}
+
+button,
+select {
+
+    background-color: #333333;
+    border: 2px solid white;
+    border-radius: 27px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: all 200ms;
+}
+
+button:hover,
+button:focus {
+    background-color: #FF7F50;
+    color: white;
+    outline: 0;
+}
+
+select:focus {
+    outline: 0;
+}
+
+
+/*select {
+    border: 2px solid white;
+    border-radius: 27px;
+    padding: 10px 20px;
+}*/
+
+
+/*END*/
+#add_category, #add_event {
+	display: none;
+}
+
+.add {
+    text-align: center;
+}
+
+.edit {
+    text-align: center;
+}
+
+.delete {
+    text-align: center;
+}
+
+/*END*/
+
+
+/*FOOTER STYLING*/
+
+#footer {
+    padding: 30px;
+    background-color: #067BC2;
+    color: white;
+    text-align: center;
+}
+
+#footer li {
+    list-style: none;
+}
+
+.icon-button {
+    background-color: white;
+    border-radius: 3.6rem;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2.0rem;
+    height: 3.6rem;
+    line-height: 3.6rem;
+    margin: 0 5px;
+    position: relative;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 3.6rem;
+}
+
+
+/* Circle */
+
+.icon-button span {
+    border-radius: 0;
+    display: block;
+    height: 0;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 0;
+}
+
+.icon-button:hover span {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 3.6rem;
+    margin: -1.8rem;
+}
+
+.twitter span {
+    background-color: #4099ff;
+}
+
+.facebook span {
+    background-color: #3B5998;
+}
+
+.google-plus span {
+    background-color: #db5a3c;
+}
+
+
+/* Icons */
+
+.icon-button i {
+    background: none;
+    color: white;
+    height: 3.6rem;
+    left: 0;
+    line-height: 3.6rem;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 3.6rem;
+    z-index: 10;
+}
+
+.icon-button .ion-social-twitter {
+    color: #4099ff;
+}
+
+.icon-button .ion-social-facebook {
+    color: #3B5998;
+}
+
+.icon-button .ion-social-googleplus {
+    color: #db5a3c;
+}
+
+.icon-button:hover .ion-social-twitter,
+.icon-button:hover .ion-social-facebook,
+.icon-button:hover .ion-social-googleplus {
+    color: white;
+}
+
+.footnote {
+    background-color: #FF7F50;
+    padding: 1px;
+    text-align: center;
+    color: white;
+}
+
+/*END*/
+

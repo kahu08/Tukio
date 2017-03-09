@@ -1,0 +1,32 @@
+
+
+
+<form class="" action="/attendees" method="post">
+
+  <input name="event_id" id="event_id" type="hidden" value="<%= @event.id()%>">
+
+  <label for="name">Event Name</label>
+    <input type="text" id="name"  name="name" required/>
+
+ <label for="number">Event Number</label>
+    <input type="number" id="number" name="number" required/>
+
+<button type="submit">Submit</button>
+
+</form> 
+
+
+
+<%if @event.attendees().any?() %>
+<ul >
+  <% @event.attendees().each() do |attendee| %>
+  <li><%= attendee.name()%></li>
+  <% end %>
+</ul>
+<%else %>
+<p>no attendees</p>
+<%end%>
+</div>
+
+
+
