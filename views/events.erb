@@ -2,12 +2,14 @@
 
     <ul>
       <% @events.each() do |event| %>
-      <a href="/events/<%= event.id()%>"><%= event.event_name() %> </a><br>
+
+      <li><a href="/events/<%= event.id()%>"><%= event.event_name() %> </a></li>
+
       <% end %>
     </ul>
 
     <% else %>
 
-          <p>There are no lists yet!</p>
+          <p>There are no events yet!</p>
 
       <% end %>

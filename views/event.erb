@@ -12,7 +12,9 @@
      <p>There are no attendees for <%= @event.event_name() %>!</p>
    <% end %>
 
- <div class="container">
-   <a href="/">Home</a>
-   <a href="/categories">View All categories</a>
- </div>
+
+
+<%= @event.event_name()%>
+<%= @event.organization()%>
+
+

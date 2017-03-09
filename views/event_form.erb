@@ -1,41 +1,44 @@
+<h1>Update the <%=@event.organization() %>'s <%=@event.event_name() %> event </h1>
+
+
 <div class="right col-md-8">
-    <form class="col-md-6 event_form" action="/event" method="post">
+    <form class="col-md-6 event_form" action="/event/edit/<%= @event.id()%>" method="post">
 
-    <label for="categorie_id">Select a category</label>
-      <select id='categorie_id' class="" name="categorie_id" type="text">
-        <%@categories.each() do |categorie|%>
-        <option value="<%=categorie.id()%>">
-        <%=categorie.categorie_name()%>
-        </option>
-        <%end%>
-      </select>
 
+      <input name="_method" type="hidden" value="patch">
+      
       <div class="form-group">
         <label for="name">Event Name</label>
-        <input type="text" name="event_name" id="name" placeholder="name" class="form-control" required>
+        <input type="text" name="event_name" id="name" placeholder="name" class="form-control" >
       </div>
 
       <div class="form-group">
         <label for="organization">Organization (sponsors)</label>
-        <input type="text" name="organization" id="organization" placeholder="Organization" class="form-control" required>
+        <input type="text" name="organization" id="organization" placeholder="Organization" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="time">Date and Time</label>
-        <input type="text" name="time" id="time" class="form-control" placeholder="" required>
+        <input type="text" name="time" id="time" class="form-control" placeholder="">
       </div>
 
       <div class="form-group">
         <label for="name">Location</label>
-        <input type="text" name="location" id="location" placeholder="location" class="form-control" required>
+        <input type="text" name="location" id="location" placeholder="location" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="name">Location</label>
-        <input type="text" name="fee" id="fee" placeholder="fees" class="form-control" required>
+        <input type="text" name="fee" id="fee" placeholder="fees" class="form-control">
       </div>
 
 
-      <button type="submit" class="btn btn-success">Add Event</button>
+      <button type="submit" class="btn btn-success">Update</button>
     </form>
   </div>
+
+<form action="/event/edit/<%= @event.id()%>" method="post">
+    <input name="_method" type="hidden" value="delete">
+
+    <button type="submit">Delete event</button>
+  </form>

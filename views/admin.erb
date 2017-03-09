@@ -22,7 +22,9 @@
         <div class="form-group">
           <label for="organization">Organization (sponsors)</label>
           <input type="text" name="organization" id="organization" placeholder="Organization" class="form-control" required/>
-        </div>
+
+        </div> 
+
 
 
         <div class="form-group">
@@ -50,3 +52,17 @@
         <button type="submit" class="btn btn-success">Add Event</button>
       </form>
     </div>
+
+
+<% if @events.any?() %>
+   <h3>Here are all the listed events:</h3>
+
+   <ul>
+     <% @events.each() do |event| %>
+       <li><a href="/admin/event_edit/<%= event.id()%>"><%= event.organization() %>,<%=event.event_name() %> </li>
+     <% end %>
+   </ul>
+
+   <% else %>
+     <p>There are no listed events </p>
+   <% end %>
