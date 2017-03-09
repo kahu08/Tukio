@@ -101,6 +101,19 @@ h2 {
 
 /*END*/
 
+/*INDEX PAGE STYLING*/
+.business-text {
+	position: absolute;
+	z-index: 1;
+	text-align: center;
+}
+
+.business img {
+	max-width: 100px;
+}
+
+/*END*/
+
 /*FORM STYLING*/
 
 .forms {
