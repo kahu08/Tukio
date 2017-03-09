@@ -7,6 +7,10 @@ require('./lib/categorie')
 also_reload('lib/**/*.rb')
 require("pg")
 
+
+
+
+
 get("/") do
   @category = Categorie.all()
   erb(:index)

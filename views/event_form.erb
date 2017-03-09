@@ -1,7 +1,18 @@
 <div class="right col-md-8">
     <form class="col-md-6 event_form" action="/event" method="post">
+<<<<<<< HEAD
+    <label for="categorie_id">Select a category</label>
+      <select id='categorie_id' class="" name="categorie_id" type="text">
+        <%@categories.each() do |categorie|%>
+        <option value="<%=categorie.id()%>">
+        <%=categorie.categorie_name()%>
+        </option>
+        <%end%>
+      </select>
+=======
 
   
+>>>>>>> 6b0a0a4a04116b1c9a9d745cd44b9a12ec435aaf
 
       <div class="form-group">
         <label for="name">Event Name</label>
