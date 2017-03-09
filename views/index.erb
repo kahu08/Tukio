@@ -62,9 +62,9 @@
 	  <% if @category.any?() %>
 	    <h3>Here are your categories:</h3>
 
-	    <ul>
+	    <ul id="myli">
 	      <% @category.each() do |category| %>
-	        <li><a href="/categories/<%= category.id()%>"><%= category.categorie_name() %></a> </li>
+	        <li id="myul" ><a href="/categories/<%= category.id()%>"><%= category.categorie_name() %></a> </li>
 	      <% end %>
 	    </ul>
 

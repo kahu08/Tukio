@@ -1,4 +1,14 @@
-<form action="/categories" method="post">
+<form id="login" class="col-md-4">
+
+    <label for="password">Admin password to enter page:</label>
+    <input type="password" class="form-control" id="pass">
+
+
+    <button type="submit">Login</button>
+  </form>
+
+
+<form action="/categories" method="post" id="category1">
 
     <label for="categorie_name">Name of the category:</label>
     <input id="categorie_name" name="categorie_name" type="text" required>
@@ -9,7 +19,7 @@
 
 
   <div class="right col-md-8">
-      <form class="col-md-6 event_form" action="/event" method="post">
+      <form class="col-md-6 event_form" id="event1" action="/event" method="post">
         <label for="categorie_id">Select a category</label>
      <select id='categorie_id' class="" name="categorie_id" type="text">
        <%@categories.each() do |categorie|%>
