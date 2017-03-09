@@ -1,14 +1,4 @@
-<form id="login" class="col-md-4">
-
-    <label for="password">Admin password to enter page:</label>
-    <input type="password" class="form-control" id="pass">
-
-
-    <button type="submit">Login</button>
-  </form>
-
-
-<form action="/categories" method="post" id="category1">
+<form action="/categories" method="post">
 
     <label for="categorie_name">Name of the category:</label>
     <input id="categorie_name" name="categorie_name" type="text" required>
@@ -19,7 +9,7 @@
 
 
   <div class="right col-md-8">
-      <form class="col-md-6 event_form" id="event1" action="/event" method="post">
+      <form class="col-md-6 event_form" action="/event" method="post">
         <label for="categorie_id">Select a category</label>
      <select id='categorie_id' class="" name="categorie_id" type="text">
        <%@categories.each() do |categorie|%>
@@ -30,28 +20,30 @@
      </select>
 
         <div class="form-group">
-          <label for="name">Event Name</label>
-          <input type="text" name="event_name" id="name" placeholder="name" class="form-control" required>
+          <label for="organization">Organization (sponsors)</label>
+          <input type="text" name="organization" id="organization" placeholder="Organization" class="form-control" required/>
+        </div>
+
+
+        <div class="form-group">
+          <label for="event_name">Event Name</label>
+          <input type="text" name="event_name" id="event_name" placeholder="event name" class="form-control" required/>
         </div>
 
         <div class="form-group">
-          <label for="organization">Organization (sponsors)</label>
-          <input type="text" name="organization" id="organization" placeholder="Organization" class="form-control" required>
+          <label for="location">Location</label>
+          <input type="text" name="location" id="location" placeholder="location" class="form-control" required/>
+        </div>
+
+
+        <div class="form-group">
+          <label for="fee">Location</label>
+          <input type="text" name="fee" id="fee" placeholder="fees" class="form-control" required/>
         </div>
 
         <div class="form-group">
           <label for="time">Date and Time</label>
-          <input type="text" name="time" id="time" class="form-control" placeholder="" required>
-        </div>
-
-        <div class="form-group">
-          <label for="name">Location</label>
-          <input type="text" name="location" id="location" placeholder="location" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-          <label for="name">Location</label>
-          <input type="text" name="fee" id="fee" placeholder="fees" class="form-control" required>
+          <input type="text" name="time" id="time" class="form-control" placeholder="" required/>
         </div>
 
 
