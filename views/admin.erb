@@ -54,8 +54,8 @@
 
 	<form class="event_form" action="/event" method="post">
 		<label for="categorie_id">
-			<h2>Select a category</h2>
 		</label>
+<<<<<<< HEAD
 
 
         <div class="form-group">
@@ -63,6 +63,14 @@
           <input type="text" name="organization" id="organization" placeholder="Organization" class="form-control" required/>
 
         </div>
+=======
+		    <select>
+		      <option value="" disabled selected>Choose your category</option>
+		    	<% @categories.each() do |category|%>
+		     	<option value="<% category.id() %>"><%= category.categorie_name()%></option>
+		      <% end %>
+		    </select>
+>>>>>>> 9af5abe8b3fe858f8946e05cda02a69acde20801
 
 		<div class="form-group">
 			<label>
@@ -72,13 +80,6 @@
 				</div>
 			</label>
 		</div>
-
-
-
-        <div class="form-group">
-          <label for="event_name">Event Name</label>
-          <input type="text" name="event_name" id="event_name" placeholder="event name" class="form-control" required/>
-        </div>
 
 		<div class="form-group">
 			<label>
@@ -118,7 +119,7 @@
 		</div>
 
 
-        <button type="submit" class="btn btn-success">Add Event</button>
+        <button type="submit">Add Event</button>
       </form>
     </div>
 
