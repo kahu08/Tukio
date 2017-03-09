@@ -1,52 +1,119 @@
-<form action="/categories" method="post">
+<div>
+	<nav class="navbar navbar-default navbar-static-top">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/">Tukio</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="/events">Events</a></li>
+	        <li><a href="/admin">Admin</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+</div>
+<div class="row">
+	<div class="col-md-4 add">	
+		<button class="add_category">ADD A NEW CATEGORY</button>
+		<button class="add_event">ADD A NEW EVENT</button>
+	</div>
+	<div class="col-md-4 edit">
+		<button>EDIT CATEGORIES</button><br>
+		<button>EDIT EVENTS</button>
+	</div>
+	<div class="col-md-4 delete">
+		<button>DELETE A CATEGORY</button>
+		<button>DELETE AN EVENT</button>
+	</div>
+</div>
 
-    <label for="categorie_name">Name of the category:</label>
-    <input id="categorie_name" name="categorie_name" type="text" required>
+<div id="add_category">
+	<h2>ADD A NEW CATEGORY</h2> 
+
+	<form action="/categories" method="post">
+		<label>    
+			<input type="text" id="categorie_name" name="categorie_name" required />    
+			<div class="label-text">
+				Name of the category:
+			</div>  
+		</label> 
+		<button type="submit">Add Category</button>
+	</form>
+</div>
+
+<div id="add_event">
+
+	<h2>ADD A NEW EVENT</h2> 
+
+	<form class="event_form" action="/event" method="post">
+		<label for="categorie_id">
+			<h2>Select a category</h2>
+		</label>
+
+		<select id='categorie_id' class="" placeholder="Select A Category" name="categorie_id" type="text">
+	      	<option value="" disabled selected>Choose your category</option>
+			<%@categories.each() do |categorie|%>
+				<option value="<%=categorie.id()%>">
+					<%=categorie.categorie_name()%>
+				</option>
+			<%end%>
+		</select>
+
+		<div class="form-group">
+			<label>    
+				<input type="text" name="organization" id="organization" required/>   
+				<div class="label-text">
+					Organization (sponsors)
+				</div>  
+			</label> 
+		</div> 
 
 
-    <button type="submit">Add Category</button>
-  </form>
+		<div class="form-group">
+			<label>    
+				<input type="text" name="event_name" id="event_name" required/>   
+				<div class="label-text">
+					Event Name
+				</div>  
+			</label> 
+		</div>
+
+		<div class="form-group">
+			<label>    
+				<input type="text" name="location" id="location" required/>   
+				<div class="label-text">
+					Location
+				</div>  
+			</label> 
+		</div>
 
 
-  <div class="right col-md-8">
-      <form class="col-md-6 event_form" action="/event" method="post">
-        <label for="categorie_id">Select a category</label>
-     <select id='categorie_id' class="" name="categorie_id" type="text">
-       <%@categories.each() do |categorie|%>
-       <option value="<%=categorie.id()%>">
-       <%=categorie.categorie_name()%>
-       </option>
-       <%end%>
-     </select>
+		<div class="form-group">
+			<label>    
+				<input type="text" name="fees" id="fees" required/>   
+				<div class="label-text">
+					Fee
+				</div>  
+			</label> 
+		</div>
 
-        <div class="form-group">
-          <label for="organization">Organization (sponsors)</label>
-          <input type="text" name="organization" id="organization" placeholder="Organization" class="form-control" required/>
-        </div> 
-
-
-        <div class="form-group">
-          <label for="event_name">Event Name</label>
-          <input type="text" name="event_name" id="event_name" placeholder="event name" class="form-control" required/>
-        </div>
-
-        <div class="form-group">
-          <label for="location">Location</label>
-          <input type="text" name="location" id="location" placeholder="location" class="form-control" required/>
-        </div>
+		<div class="form-group">
+			<label>    
+				<input type="text" name="time" id="time" required/>   
+				<div class="label-text">
+					Date and Time
+				</div>  
+			</label>
+		</div>
 
 
-        <div class="form-group">
-          <label for="fee">Location</label>
-          <input type="text" name="fee" id="fee" placeholder="fees" class="form-control" required/>
-        </div>
-
-        <div class="form-group">
-          <label for="time">Date and Time</label>
-          <input type="text" name="time" id="time" class="form-control" placeholder="" required/>
-        </div>
-
-
-        <button type="submit" class="btn btn-success">Add Event</button>
-      </form>
-    </div>
+		<button type="submit">Add Event</button>
+	</form>
+</div>
