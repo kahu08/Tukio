@@ -1,3 +1,4 @@
+
 /*LANDING PAGE STYLING*/
 
 #landing-page-text {
@@ -10,6 +11,7 @@
     color: white;
     padding: 40px;
     margin: 20px;
+
 }
 
 #landing-page-text h1 {
@@ -97,9 +99,7 @@ h2 {
     background-color: #D5D5D5;
 }
 
-
 /*END*/
-
 
 /*FORM STYLING*/
 
@@ -169,6 +169,7 @@ label input:valid + .label-text {
 
 button,
 select {
+
     background-color: #333333;
     border: 2px solid white;
     border-radius: 27px;
@@ -216,6 +217,8 @@ select:focus {
 .delete {
     text-align: center;
 }
+
+/*END*/
 
 
 /*FOOTER STYLING*/
@@ -330,5 +333,5 @@ select:focus {
     color: white;
 }
 
-
 /*END*/
+
