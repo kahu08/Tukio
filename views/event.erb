@@ -1,23 +1,8 @@
 
-<% if @event.attendees().any?() %>
-   <h3>Here are all the attendee for event:<%= @event.event_name() %> </h3>
-
-   <ul>
-     <% @event.attendees().each() do |attendee| %>
-       <li><%= attendee.name() %>,<%=attendee.number() %> </li>
-     <% end %>
-   </ul>
-
-   <% else %>
-     <p>There are no attendees for <%= @event.event_name() %>!</p>
-   <% end %>
-
- <div class="container">
-   <a href="/">Home</a>
-   <a href="/categories">View All categories</a>
- </div>
 
 
 
 
+<%= @event.event_name()%>
+<%= @event.organization()%>
 
