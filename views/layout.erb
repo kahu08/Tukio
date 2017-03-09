@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
-   <head>
-     <title>Tukio</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      <link href="https://fonts.googleapis.com/css?family=Carter+One" rel="stylesheet">
-      <link rel="stylesheet" href="/styles/styles.css">
-      
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-   </head>
-   <body>
-       <%= yield %>
-   </body>
- </html>
+	<head>
+		<title>Tukio</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Carter+One" rel="stylesheet">
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" href="/styles/styles.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<%= yield %>
+		<div id="footer">
+			<a href="http://twitter.com/" class="icon-button twitter"><i class="ion-social-twitter"></i><span></span></a>
+			<a href="http://facebook.com" class="icon-button facebook"><i class="ion-social-facebook"></i><span></span></a>
+			<a href="http://plus.google.com" class="icon-button google-plus"><i class="ion-social-googleplus"></i><span></span></a>
+			<h3>Contact Us:</h3>
+				<h4><span class="glyphicon glyphicon-envelope"></span> EMAIL: tukio@gmail.com</h4>
+				<h4><span class="glyphicon glyphicon-earphone"></span> CALL: +254 799 999 999</h4>
+		</div>
+		<div class="footnote">		
+			<h5> &#169; Tukio 2017</h5>
+		</div>
+	</body>
+</html>

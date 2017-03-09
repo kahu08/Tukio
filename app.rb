@@ -7,7 +7,9 @@ require('./lib/categorie')
 also_reload('lib/**/*.rb')
 require("pg")
 
-
+get('/') do
+  erb(:index)
+end
 
 
 #form for adding attendee to event
@@ -34,20 +36,20 @@ end
 
 get ("/event/new") do
   @categories=Categorie.all()
-erb(:event_form)
+  erb(:event_form)
 end
 
 
 post("/event") do
-    @event_name = params.fetch("event_name")
-    @organization = params.fetch("organization")
-    @time = params.fetch("time")
-    @location = params.fetch("location")
-    @fee = params.fetch("fee").to_i()
-    event = Event.new({:event_name => @event_name, :organization => @organization, :time => @time, :location => @location, :fee => @fee})
-    event.save()
-    @events = Event.all()
-    erb(:events)
+  @event_name = params.fetch("event_name")
+  @organization = params.fetch("organization")
+  @time = params.fetch("time")
+  @location = params.fetch("location")
+  @fee = params.fetch("fee").to_i()
+  event = Event.new({:event_name => @event_name, :organization => @organization, :time => @time, :location => @location, :fee => @fee})
+  event.save()
+  @events = Event.all()
+  erb(:events)
 end
 
 get("/events/:id") do
@@ -66,11 +68,11 @@ post('/categories')do
 end
 
 get('/categories')do
-@category = Categorie.all()
+  @category = Categorie.all()
   erb(:categories)
 end
 
 get('/categories/:id')do
-@category = Categorie.find(params.fetch("id").to_i())
+  @category = Categorie.find(params.fetch("id").to_i())
   erb(:category)
 end
