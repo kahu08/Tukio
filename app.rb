@@ -15,6 +15,7 @@ end
 
 get("/admin") do
   @categories = Categorie.all()
+  erb :location
   erb(:admin)
 end
 
