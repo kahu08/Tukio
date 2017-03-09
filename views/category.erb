@@ -3,7 +3,7 @@
 
    <ul>
      <% @category.events().each() do |event| %>
-       <li><%= event.organization() %>,<%=event.event_name() %>,<%= event.time() %>,<%= event.location() %>, <%= event.fee() %> </li>
+       <li><a href="/event/<%= event.id()%>"><%= event.organization() %>,<%=event.event_name() %>,<%= event.time() %>,<%= event.location() %>, <%= event.fee() %></a> </li>
      <% end %>
    </ul>
 
@@ -15,4 +15,4 @@
    <a href="/">Home</a>
    <a href="/categories">View All categories</a>
  </div>
-<br><br>
+
