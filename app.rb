@@ -30,7 +30,7 @@ post('/attendees') do
   attendee.save()
   # @attendees = Attendee.all()
   erb(:fiti)
-
+end
 
 get ("/event/new") do
   @categories=Categorie.all()
@@ -71,6 +71,7 @@ get('/categories')do
 end
 
 get('/categories/:id')do
-@category = Categorie.find(params.fetch("id").to_i())
+  @category = Categorie.find(params.fetch("id").to_i())
   erb(:category)
+end
 end
