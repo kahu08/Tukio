@@ -18,7 +18,13 @@ end
 
 get("/admin") do
   @categories = Categorie.all()
+  @events = Event.all()
   erb(:admin)
+end
+
+get("/events") do
+  @events = Event.all()
+  erb(:events)
 end
 
 post('/categories')do
@@ -59,3 +65,38 @@ post('/attendees')do
  attendee.save()
  erb(:success)
 end
+
+get('/admin/event_edit/:id')do 
+@event = Event.find(params.fetch("id").to_i())
+ erb(:event_form)
+end
+
+
+ patch("/event/edit/:id") do
+   organization = params.fetch("organization")
+   event_name = params.fetch("event_name")
+   location = params.fetch("location")
+   fee = params.fetch("fee").to_i()
+   time = params.fetch("time")  
+   @event = Event.find(params.fetch("id").to_i())
+   @event.update({:organization => organization,:event_name => event_name, :location => location, :fee => fee, :time => time})
+  #  if @event = Event.update({:organization => organization,:event_name => event_name, :location => location, :fee => fee, :time => time})
+  #   erb(:event)
+  # else
+  #   erb(:index)
+  # end
+  erb(:success)
+end
+
+delete("/event/edit/:id") do
+    @event = Event.find(params.fetch("id").to_i())
+    @event.delete()
+    @categories = Categorie.all()
+    @events = Event.all()
+    erb(:admin)
+  end
+
+  # get("/event/editted/:id")do
+  #  @event = Event.find(params.fetch("id").to_i()) 
+  #  erb(:event)
+  # end
