@@ -1,7 +1,9 @@
 <h1>Update the <%=@event.organization() %>'s <%=@event.event_name() %> event </h1>
 
+
 <div class="right col-md-8">
     <form class="col-md-6 event_form" action="/event/edit/<%= @event.id()%>" method="post">
+
 
       <input name="_method" type="hidden" value="patch">
       

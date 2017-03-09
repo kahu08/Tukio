@@ -52,7 +52,9 @@ post('/event')do
  erb(:success)
 end
 
+
 get('/event/:id')do 
+
 @event = Event.find(params.fetch("id").to_i())
  erb(:attendee_form)
 end
@@ -65,6 +67,7 @@ post('/attendees')do
  attendee.save()
  erb(:success)
 end
+
 
 get('/admin/event_edit/:id')do 
 @event = Event.find(params.fetch("id").to_i())
@@ -100,3 +103,4 @@ delete("/event/edit/:id") do
   #  @event = Event.find(params.fetch("id").to_i()) 
   #  erb(:event)
   # end
+
