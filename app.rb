@@ -34,7 +34,7 @@ post('/categories')do
  category = Categorie.new({:categorie_name => name, :id => nil})
   if category.save()
     @category = Categorie.all()
-    erb(:index)/events/7
+    erb(:index)
   else
     erb(:admin)
   end
@@ -113,15 +113,3 @@ delete("/event/edit/:id") do
    erb(:event)
   end
 
-# get("/search")do
-#   erb(:search)
-# end
-#   post ('/search')  do
-#    @events = Event.all(:organization.LIKE => "%#{params[:query]}%") | Event.all(:event_name.LIKE => "%#{params[:query]}%")
-#    erb (:search)
-# end
-
-  # get("/event/editted/:id")do
-  #  @event = Event.find(params.fetch("id").to_i())
-  #  erb(:event)
-  # end
