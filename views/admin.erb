@@ -1,4 +1,12 @@
 <div class="container">
+	<form id="login" >
+
+		<label for="pass">Enter admin password</label>
+		<input id="pass" type="password" required>
+
+		<button type="submit">Login</button>
+	</form>
+<div class="admin-rights">
 
 <div class="row ">
 	<div class="add_category_row">
@@ -9,38 +17,12 @@
 
 <div class="row">
 	<h2>Events</h2>
-	<div class="col-md-4 add">
+	<div class="col-md-6 add">
 		<button class="add_event">ADD A NEW EVENT</button>
 	</div>
-	<div class="col-md-4 edit">
+	<div class="col-md-6 edit">
 		<button>EDIT EVENTS</button>
-
-<form id="login" >
-
-
-    <label for="pass">Enter admin password</label>
-    <input id="pass" type="password" required>
-
-
-    <button type="submit">Login</button>
-  </form>
-
-<div class="row" id="buttons1">
-	<div class="col-md-4 add">
-		<button class="add_category">ADD A NEW CATEGORY</button>
-		<button class="add_event">ADD A NEW EVENT</button>
-	</div>
-	<div class="col-md-4 edit">
-		<button>EDIT CATEGORIES</button><br>
-		<button class="edit_event">EDIT EVENTS</button>
-	</div>
-	<div class="col-md-4 delete">
-		<button>DELETE AN EVENT</button>
-	</div>
-
 </div>
-
-
 
 <div id="add_category">
 	<h2>ADD A NEW CATEGORY</h2>
@@ -57,24 +39,6 @@
 	</form>
 </div>
 
-<div id="edit_event">
-	<h2>Edit Event</h2>
-
-	<% if @events.any?() %>
-
-   <ul>
-     <% @events.each() do |event| %>
-
-       <li><a href="/admin/event_edit/<%= event.id()%>"<%=event.event_name() %> By: &nbsp;<%= event.organization() %> </li></a><br>
-
-     <% end %>
-   </ul>
-
-   <% else %>
-     <p>There are no events </p>
-   <% end %>
-
-</div>
 
 
 <div id="add_event">
@@ -144,9 +108,10 @@
       </form>
     </div>
 
+<div id="edit_event">
 <div class="all-events">
 	<% if @events.any?() %>
-   <h2>Here are all the listed events:</h2>
+   <h2>Pick an event to edit:</h2>
 
    <ul>
      <% @events.each() do |event| %>
@@ -159,4 +124,5 @@
    <% end %>
  </div>
 </div>
-
+</div>
+</div>
