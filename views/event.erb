@@ -34,8 +34,8 @@
    <% end %>
 
 
-
-<%= @event.event_name()%>
-<%= @event.organization()%>
-
-
+Name: <%= @event.event_name() %>
+Organization: <%= @event.organization() %>
+location: <%= @event.location() %>
+Date/Time: <%= @event.time() %>
+Ticket: <%= @event.fee() %>

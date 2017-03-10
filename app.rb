@@ -34,7 +34,7 @@ post('/categories')do
  category = Categorie.new({:categorie_name => name, :id => nil})
   if category.save()
     @category = Categorie.all()
-    erb(:index)
+    erb(:index)/events/7
   else
     erb(:admin)
   end
@@ -92,7 +92,6 @@ end
    location = params.fetch("location")
    fee = params.fetch("fee").to_i()
    time = params.fetch("time")
-   #@event = Event.find(params.fetch("id").to_i())
    if  @event.update({:organization => organization,:event_name => event_name, :location => location, :fee => fee, :time => time})
     erb(:event)
   else
