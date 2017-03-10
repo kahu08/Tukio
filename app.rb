@@ -48,7 +48,6 @@ get('/categories/:id')do
 end
 
 post('/event')do
-
    organization = params.fetch("organization")
    event_name = params.fetch("event_name")
    location = params.fetch("location")
@@ -63,7 +62,6 @@ post('/event')do
   else
     erb(:errors)
   end
-
 end
 
 get('/event/:id')do 
