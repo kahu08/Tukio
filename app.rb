@@ -66,7 +66,7 @@ post('/event')do
 
 end
 
-get('/event/:id')do 
+get('/event/:id')do
 
 @event = Event.find(params.fetch("id").to_i())
  erb(:attendee_form)
@@ -82,7 +82,7 @@ post('/attendees')do
 end
 
 
-get('/admin/event_edit/:id')do 
+get('/admin/event_edit/:id')do
 @event = Event.find(params.fetch("id").to_i())
  erb(:event_form)
 end
@@ -93,7 +93,7 @@ end
    event_name = params.fetch("event_name")
    location = params.fetch("location")
    fee = params.fetch("fee").to_i()
-   time = params.fetch("time")  
+   time = params.fetch("time")
    #@event = Event.find(params.fetch("id").to_i())
    if  @event.update({:organization => organization,:event_name => event_name, :location => location, :fee => fee, :time => time})
     erb(:event)
@@ -112,7 +112,7 @@ delete("/event/edit/:id") do
 
 
   get("/event/editted/:id")do
-   @event = Event.find(params.fetch("id").to_i()) 
+   @event = Event.find(params.fetch("id").to_i())
    erb(:event)
   end
 
@@ -125,6 +125,6 @@ delete("/event/edit/:id") do
 # end
 
   # get("/event/editted/:id")do
-  #  @event = Event.find(params.fetch("id").to_i()) 
+  #  @event = Event.find(params.fetch("id").to_i())
   #  erb(:event)
   # end
