@@ -14,16 +14,39 @@
 	</div>
 	<div class="col-md-4 edit">
 		<button>EDIT EVENTS</button>
+
+<form id="login" >
+
+
+    <label for="pass">Enter admin password</label>
+    <input id="pass" type="password" required>
+
+
+    <button type="submit">Login</button>
+  </form>
+
+<div class="row" id="buttons1">
+	<div class="col-md-4 add">
+		<button class="add_category">ADD A NEW CATEGORY</button>
+		<button class="add_event">ADD A NEW EVENT</button>
+	</div>
+	<div class="col-md-4 edit">
+		<button>EDIT CATEGORIES</button><br>
+		<button class="edit_event">EDIT EVENTS</button>
 	</div>
 	<div class="col-md-4 delete">
 		<button>DELETE AN EVENT</button>
 	</div>
+
 </div>
+
+
 
 <div id="add_category">
 	<h2>ADD A NEW CATEGORY</h2>
 
 	<form action="/categories" method="post">
+
 		<label>
 			<input type="text" id="categorie_name" name="categorie_name" required />
 			<div class="label-text">
@@ -34,9 +57,30 @@
 	</form>
 </div>
 
+<div id="edit_event">
+	<h2>Edit Event</h2>
+
+	<% if @events.any?() %>
+
+   <ul>
+     <% @events.each() do |event| %>
+
+       <li><a href="/admin/event_edit/<%= event.id()%>"<%=event.event_name() %> By: &nbsp;<%= event.organization() %> </li></a><br>
+
+     <% end %>
+   </ul>
+
+   <% else %>
+     <p>There are no events </p>
+   <% end %>
+
+</div>
+
+
 <div id="add_event">
 
 	<h2>ADD A NEW EVENT</h2>
+
 
 	<form class="event_form" action="/event" method="post">
 
@@ -115,3 +159,4 @@
    <% end %>
  </div>
 </div>
+

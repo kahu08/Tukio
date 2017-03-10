@@ -29,10 +29,16 @@ get("/events") do
 end
 
 post('/categories')do
-  name = params.fetch("categorie_name")
-  category = Categorie.new({:categorie_name => name, :id => nil})
-  category.save()
-  erb(:success)
+
+ name = params.fetch("categorie_name")
+ category = Categorie.new({:categorie_name => name, :id => nil})
+  if category.save()
+    @category = Categorie.all()
+    erb(:index)
+  else
+    erb(:admin)
+  end
+
 end
 
 get('/categories/:id')do
@@ -42,16 +48,20 @@ get('/categories/:id')do
 end
 
 post('/event')do
-  event_name = params.fetch("event_name")
-  organization = params.fetch("organization")
-  time = params.fetch("time")
-  location = params.fetch("location")
-  fee = params.fetch("fee").to_i()
-  categorie_id = params.fetch("categorie_id").to_i()
-  @categorie = Categorie.find(categorie_id)
-  event = Event.new({:event_name => event_name, :organization => organization, :time => time, :location => location, :fee => fee, :categorie_id =>categorie_id, :id => nil})
-  event.save()
-  erb(:success)
+   organization = params.fetch("organization")
+   event_name = params.fetch("event_name")
+   location = params.fetch("location")
+   fee = params.fetch("fee").to_i()
+   time = params.fetch("time")
+   categorie_id = params.fetch("categorie_id").to_i()
+   @event = Event.new({:organization => organization,:event_name => event_name, :location => location, :fee => fee, :time => time, :categorie_id =>categorie_id, :id => nil})
+   if @event.save()
+      @categories = Categorie.all()
+      @events = Event.all()
+    erb(:admin)
+  else
+    erb(:errors)
+  end
 end
 
 get('/event/:id')do
@@ -82,14 +92,11 @@ end
    location = params.fetch("location")
    fee = params.fetch("fee").to_i()
    time = params.fetch("time")
-   @event = Event.find(params.fetch("id").to_i())
-   @event.update({:organization => organization,:event_name => event_name, :location => location, :fee => fee, :time => time})
-  #  if @event = Event.update({:organization => organization,:event_name => event_name, :location => location, :fee => fee, :time => time})
-  #   erb(:event)
-  # else
-  #   erb(:index)
-  # end
-  erb(:success)
+   if  @event.update({:organization => organization,:event_name => event_name, :location => location, :fee => fee, :time => time})
+    erb(:event)
+  else
+    erb(:index)
+  end
 end
 
 delete("/event/edit/:id") do
@@ -100,7 +107,7 @@ delete("/event/edit/:id") do
     erb(:admin)
   end
 
-  # get("/event/editted/:id")do
-  #  @event = Event.find(params.fetch("id").to_i())
-  #  erb(:event)
-  # end
+  get("/event/editted/:id")do
+   @event = Event.find(params.fetch("id").to_i())
+   erb(:event)
+  end
