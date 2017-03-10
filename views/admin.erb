@@ -128,11 +128,16 @@
   <% if @events.any?() %>
      <h3>Here are all the listed events:</h3>
 
+
+<% if @events.any?() %>
+   <h3>Here are all the listed events:</h3>
+
      <ul>
        <% @events.each() do |event| %>
          <li><a href="/admin/event_edit/<%= event.id()%>"><%= event.organization() %>,<%=event.event_name() %> </li>
        <% end %>
      </ul>
+
 
      <% else %>
        <p>There are no listed events </p>

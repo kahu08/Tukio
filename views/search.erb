@@ -1,0 +1,14 @@
+<form action="/search" method="post">
+  <input type="text" name="query"/><br />   
+  <input type="submit" />
+</form>
+
+<% if @events %>
+    <table>
+        <%@events.each do |e|%>
+        <tr valign="top">
+            <td><%=e.event_name%></td>
+        </tr>
+        <%end%>
+    </table>
+<% end %>
