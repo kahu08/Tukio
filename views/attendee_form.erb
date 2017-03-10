@@ -1,4 +1,6 @@
 
+
+
 <form class="" action="/attendees" method="post">
 
   <input name="event_id" id="event_id" type="hidden" value="<%= @event.id()%>">
@@ -10,7 +12,9 @@
     <input type="number" id="number" name="number" required/>
 
 <button type="submit">Submit</button>
+
 </form> 
+
 
 
 <%if @event.attendees().any?() %>
@@ -23,4 +27,6 @@
 <p>no attendees</p>
 <%end%>
 </div>
+
+
 

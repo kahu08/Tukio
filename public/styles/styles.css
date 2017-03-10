@@ -10,7 +10,8 @@
     background-color: rgba(255, 127, 80, 0.7);
     color: white;
     padding: 40px;
-    margin: 20px solid white;
+    margin: 20px;
+
 }
 
 #landing-page-text h1 {
@@ -22,6 +23,12 @@ h2 {
     text-align: center;
     font-family: 'Carter One', cursive;
 }
+
+.trial {
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+}
+
 
 /*carousel images with overlay*/
 
@@ -42,6 +49,7 @@ h2 {
     padding: 300px;
 }
 
+
 /*END*/
 
 
@@ -54,6 +62,7 @@ h2 {
     border-radius: 0;
     padding: 5px;
 }
+
 
 /* title */
 
@@ -68,6 +77,7 @@ h2 {
 .navbar-default .navbar-brand:focus {
     color: #FF7F50;
 }
+
 
 /* link */
 
@@ -87,6 +97,19 @@ h2 {
 .navbar-default .navbar-nav > .open > a:focus {
     color: #555;
     background-color: #D5D5D5;
+}
+
+/*END*/
+
+/*INDEX PAGE STYLING*/
+.business-text {
+	position: absolute;
+	z-index: 1;
+	text-align: center;
+}
+
+.business img {
+	max-width: 100px;
 }
 
 /*END*/
@@ -157,7 +180,9 @@ label input:valid + .label-text {
     transform: translateY(-74px);
 }
 
-button {
+button,
+select {
+
     background-color: #333333;
     border: 2px solid white;
     border-radius: 27px;
@@ -177,7 +202,37 @@ button:focus {
     outline: 0;
 }
 
+select:focus {
+    outline: 0;
+}
+
+
+/*select {
+    border: 2px solid white;
+    border-radius: 27px;
+    padding: 10px 20px;
+}*/
+
+
 /*END*/
+#add_category, #add_event {
+	display: none;
+}
+
+.add {
+    text-align: center;
+}
+
+.edit {
+    text-align: center;
+}
+
+.delete {
+    text-align: center;
+}
+
+/*END*/
+
 
 /*FOOTER STYLING*/
 
@@ -292,3 +347,4 @@ button:focus {
 }
 
 /*END*/
+

@@ -16,6 +16,7 @@ get("/") do
   erb(:index)
 end
 
+
 get("/admin") do
   @categories = Categorie.all()
   @events = Event.all()
@@ -28,6 +29,7 @@ get("/events") do
 end
 
 post('/categories')do
+
  name = params.fetch("categorie_name")
  category = Categorie.new({:categorie_name => name, :id => nil})
   if category.save()
@@ -36,14 +38,17 @@ post('/categories')do
   else
     erb(:admin)
   end
+
 end
 
 get('/categories/:id')do
-@category = Categorie.find(params.fetch("id").to_i())
- erb(:category)
+
+  @category = Categorie.find(params.fetch("id").to_i())
+  erb(:category)
 end
 
 post('/event')do
+
    organization = params.fetch("organization")
    event_name = params.fetch("event_name")
    location = params.fetch("location")
@@ -58,9 +63,11 @@ post('/event')do
   else
     erb(:errors)
   end
+
 end
 
 get('/event/:id')do 
+
 @event = Event.find(params.fetch("id").to_i())
  erb(:attendee_form)
 end
@@ -73,6 +80,7 @@ post('/attendees')do
  attendee.save()
  erb(:success)
 end
+
 
 get('/admin/event_edit/:id')do 
 @event = Event.find(params.fetch("id").to_i())
@@ -102,6 +110,7 @@ delete("/event/edit/:id") do
     erb(:admin)
   end
 
+
   get("/event/editted/:id")do
    @event = Event.find(params.fetch("id").to_i()) 
    erb(:event)
@@ -114,3 +123,8 @@ delete("/event/edit/:id") do
 #    @events = Event.all(:organization.LIKE => "%#{params[:query]}%") | Event.all(:event_name.LIKE => "%#{params[:query]}%")
 #    erb (:search)
 # end
+
+  # get("/event/editted/:id")do
+  #  @event = Event.find(params.fetch("id").to_i()) 
+  #  erb(:event)
+  # end
