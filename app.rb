@@ -92,7 +92,6 @@ end
    location = params.fetch("location")
    fee = params.fetch("fee").to_i()
    time = params.fetch("time")
-   #@event = Event.find(params.fetch("id").to_i())
    if  @event.update({:organization => organization,:event_name => event_name, :location => location, :fee => fee, :time => time})
     erb(:event)
   else
@@ -114,16 +113,3 @@ delete("/event/edit/:id") do
    erb(:event)
   end
 
-
-# get("/search")do
-#   erb(:search)
-# end
-#   post ('/search')  do
-#    @events = Event.all(:organization.LIKE => "%#{params[:query]}%") | Event.all(:event_name.LIKE => "%#{params[:query]}%")
-#    erb (:search)
-# end
-
-  # get("/event/editted/:id")do
-  #  @event = Event.find(params.fetch("id").to_i())
-  #  erb(:event)
-  # end

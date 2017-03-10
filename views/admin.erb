@@ -75,7 +75,9 @@
 
    <ul>
      <% @events.each() do |event| %>
+
        <li><a href="/admin/event_edit/<%= event.id()%>"<%=event.event_name() %> By: &nbsp;<%= event.organization() %> </li></a><br>
+
      <% end %>
    </ul>
 
@@ -101,6 +103,7 @@
        </option>
        <%end%>
      </select>
+	
 
 
 
