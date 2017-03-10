@@ -30,7 +30,7 @@
 
     <button type="submit">Login</button>
   </form>
-  
+
 <div class="row" id="buttons1">
 	<div class="col-md-4 add">
 		<button class="add_category">ADD A NEW CATEGORY</button>
@@ -57,7 +57,7 @@
 
 
 
-	
+
 		<label>
 			<input type="text" id="categorie_name" name="categorie_name" required />
 			<div class="label-text">
@@ -72,11 +72,10 @@
 	<h2>Edit Event</h2>
 
 	<% if @events.any?() %>
-   <h3>Here are all the events to edit:</h3>
 
    <ul>
      <% @events.each() do |event| %>
-       <li><a href="/admin/event_edit/<%= event.id()%>"><%= event.organization() %>,<%=event.event_name() %> </li>
+       <li><a href="/admin/event_edit/<%= event.id()%>"<%=event.event_name() %> By: &nbsp;<%= event.organization() %> </li></a><br>
      <% end %>
    </ul>
 
@@ -93,7 +92,7 @@
 
 
 	<form class="event_form" action="/event" method="post">
-		
+
 		<label for="categorie_id">Select a category</label>
      <select id='categorie_id' class="" name="categorie_id" type="text">
        <%@categories.each() do |categorie|%>
@@ -157,5 +156,3 @@
         <button type="submit">Add Event</button>
       </form>
     </div>
-
-

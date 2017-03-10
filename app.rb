@@ -114,6 +114,7 @@ delete("/event/edit/:id") do
    erb(:event)
   end
 
+
 # get("/search")do
 #   erb(:search)
 # end
