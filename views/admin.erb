@@ -1,14 +1,3 @@
-
-<form id="login" >
-
-    <label for="pass">Enter admin password</label>
-    <input id="pass" type="password" required>
-
-
-    <button type="submit">Login</button>
-  </form>
-
-
 <div>
 	<nav class="navbar navbar-default navbar-static-top">
 	  <div class="container-fluid">
@@ -30,40 +19,52 @@
 	  </div>
 	</nav>
 </div>
-<div class="row">
-	<div class="col-md-4 add">	
-		<button class="add_category">ADD A NEW CATEGORY</button>
-		<button class="add_event">ADD A NEW EVENT</button>
-	</div>
-	<div class="col-md-4 edit">
-		<button>EDIT CATEGORIES</button><br>
-		<button>EDIT EVENTS</button>
-	</div>
-	<div class="col-md-4 delete">
-		<button>DELETE A CATEGORY</button>
-		<button>DELETE AN EVENT</button>
-	</div>
+
+<form id="login" >
+    <label for="pass">Enter admin password</label>
+    <input id="pass" type="password" required>
+    <button type="submit">Login</button>
+</form>
+
+<div id="buttons1">
+  <div class="row">
+  	<div class="col-md-4 add">
+  		<button class="add_category">ADD A NEW CATEGORY</button>
+  		<button class="add_event">ADD A NEW EVENT</button>
+  	</div>
+  	<div class="col-md-4 edit">
+  		<button>EDIT CATEGORIES</button><br>
+  		<button>EDIT EVENTS</button>
+  	</div>
+  	<div class="col-md-4 delete">
+  		<button>DELETE A CATEGORY</button>
+  		<button>DELETE AN EVENT</button>
+  	</div>
+  </div>
 </div>
 
-<div id="add_category">
-	<h2>ADD A NEW CATEGORY</h2> 
 
-	<form action="/categories" method="post">
-		<label>    
-			<input type="text" id="categorie_name" name="categorie_name" required />    
+
+<div id="add_category">
+	<h2>ADD A NEW CATEGORY</h2>
+
+
+	<form action="/categories" method="post" id="event1">
+		<label>
+			<input type="text" id="categorie_name" name="categorie_name" required />
 			<div class="label-text">
 				Name of the category:
-			</div>  
-		</label> 
+			</div>
+		</label>
 		<button type="submit">Add Category</button>
 	</form>
 </div>
 
 <div id="add_event">
 
-	<h2>ADD A NEW EVENT</h2> 
+	<h2>ADD A NEW EVENT</h2>
 
-	<form class="event_form" action="/event" method="post">
+	<form class="event_form" action="/event" method="post" id="category1">
 		<label for="categorie_id">
 			<h2>Select a category</h2>
 		</label>
@@ -75,16 +76,16 @@
           <input type="text" name="organization" id="organization" placeholder="Organization" class="form-control" required/>
 
 
-        </div> 
+        </div>
 
 		<div class="form-group">
-			<label>    
-				<input type="text" name="organization" id="organization" required/>   
+			<label>
+				<input type="text" name="organization" id="organization" required/>
 				<div class="label-text">
 					Organization (sponsors)
-				</div>  
-			</label> 
-		</div> 
+				</div>
+			</label>
+		</div>
 
 
 
@@ -95,39 +96,39 @@
         </div>
 
 		<div class="form-group">
-			<label>    
-				<input type="text" name="event_name" id="event_name" required/>   
+			<label>
+				<input type="text" name="event_name" id="event_name" required/>
 				<div class="label-text">
 					Event Name
-				</div>  
-			</label> 
+				</div>
+			</label>
 		</div>
 
 		<div class="form-group">
-			<label>    
-				<input type="text" name="location" id="location" required/>   
+			<label>
+				<input type="text" name="location" id="location" required/>
 				<div class="label-text">
 					Location
-				</div>  
-			</label> 
+				</div>
+			</label>
 		</div>
 
 
 		<div class="form-group">
-			<label>    
-				<input type="text" name="fees" id="fees" required/>   
+			<label>
+				<input type="text" name="fees" id="fees" required/>
 				<div class="label-text">
 					Fee
-				</div>  
-			</label> 
+				</div>
+			</label>
 		</div>
 
 		<div class="form-group">
-			<label>    
-				<input type="text" name="time" id="time" required/>   
+			<label>
+				<input type="text" name="time" id="time" required/>
 				<div class="label-text">
 					Date and Time
-				</div>  
+				</div>
 			</label>
 		</div>
 
