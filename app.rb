@@ -107,9 +107,7 @@ delete("/event/edit/:id") do
     erb(:admin)
   end
 
-
   get("/event/editted/:id")do
    @event = Event.find(params.fetch("id").to_i())
    erb(:event)
   end
-
