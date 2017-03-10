@@ -1,13 +1,4 @@
 
-<form id="login" >
-
-    <label for="pass">Enter admin password</label>
-    <input id="pass" type="password" required>
-
-
-    <button type="submit">Login</button>
-  </form>
-
 
 <div>
 	<nav class="navbar navbar-default navbar-static-top">
@@ -30,14 +21,24 @@
 	  </div>
 	</nav>
 </div>
-<div class="row">
-	<div class="col-md-4 add">	
+
+<form id="login" >
+
+    <label for="pass">Enter admin password</label>
+    <input id="pass" type="password" required>
+
+
+    <button type="submit">Login</button>
+  </form>
+  
+<div class="row" id="buttons1">
+	<div class="col-md-4 add">
 		<button class="add_category">ADD A NEW CATEGORY</button>
 		<button class="add_event">ADD A NEW EVENT</button>
 	</div>
 	<div class="col-md-4 edit">
 		<button>EDIT CATEGORIES</button><br>
-		<button>EDIT EVENTS</button>
+		<button class="edit_event">EDIT EVENTS</button>
 	</div>
 	<div class="col-md-4 delete">
 		<button>DELETE A CATEGORY</button>
@@ -46,76 +47,96 @@
 </div>
 
 <div id="add_category">
-	<h2>ADD A NEW CATEGORY</h2> 
+	<h2>ADD A NEW CATEGORY</h2>
 
 	<form action="/categories" method="post">
-		<label>    
-			<input type="text" id="categorie_name" name="categorie_name" required />    
+		<label>
+			<input type="text" id="categorie_name" name="categorie_name" required />
 			<div class="label-text">
 				Name of the category:
-			</div>  
-		</label> 
+			</div>
+		</label>
 		<button type="submit">Add Category</button>
 	</form>
 </div>
 
+<div id="edit_event">
+	<h2>Edit Event</h2>
+
+	<% if @events.any?() %>
+   <h3>Here are all the events to edit:</h3>
+
+   <ul>
+     <% @events.each() do |event| %>
+       <li><a href="/admin/event_edit/<%= event.id()%>"><%= event.organization() %>,<%=event.event_name() %> </li>
+     <% end %>
+   </ul>
+
+   <% else %>
+     <p>There are no events </p>
+   <% end %>
+
+</div>
+
+
 <div id="add_event">
 
-	<h2>ADD A NEW EVENT</h2> 
+	<h2>ADD A NEW EVENT</h2>
 
 	<form class="event_form" action="/event" method="post">
-		<label for="categorie_id">
-		</label>
-		    <select>
-		      <option value="" disabled selected>Choose your category</option>
-		    	<% @categories.each() do |category|%>
-		     	<option value="<% category.id() %>"><%= category.categorie_name()%></option>
-		      <% end %>
-		    </select>
+		
+		<label for="categorie_id">Select a category</label>
+     <select id='categorie_id' class="" name="categorie_id" type="text">
+       <%@categories.each() do |categorie|%>
+       <option value="<%=categorie.id()%>">
+       <%=categorie.categorie_name()%>
+       </option>
+       <%end%>
+     </select>
 
 		<div class="form-group">
-			<label>    
-				<input type="text" name="organization" id="organization" required/>   
+			<label>
+				<input type="text" name="organization" id="organization" required/>
 				<div class="label-text">
 					Organization (sponsors)
-				</div>  
-			</label> 
-		</div> 
+				</div>
+			</label>
+		</div>
 
 		<div class="form-group">
-			<label>    
-				<input type="text" name="event_name" id="event_name" required/>   
+			<label>
+				<input type="text" name="event_name" id="event_name" required/>
 				<div class="label-text">
 					Event Name
-				</div>  
-			</label> 
+				</div>
+			</label>
 		</div>
 
 		<div class="form-group">
-			<label>    
-				<input type="text" name="location" id="location" required/>   
+			<label>
+				<input type="text" name="location" id="location" required/>
 				<div class="label-text">
 					Location
-				</div>  
-			</label> 
+				</div>
+			</label>
 		</div>
 
 
 		<div class="form-group">
-			<label>    
-				<input type="text" name="fees" id="fees" required/>   
+			<label>
+				<input type="text" name="fee" id="fee" required/>
 				<div class="label-text">
 					Fee
-				</div>  
-			</label> 
+				</div>
+			</label>
 		</div>
 
 		<div class="form-group">
-			<label>    
-				<input type="text" name="time" id="time" required/>   
+			<label>
+				<input type="text" name="time" id="time" required/>
 				<div class="label-text">
 					Date and Time
-				</div>  
+				</div>
 			</label>
 		</div>
 
@@ -124,23 +145,4 @@
       </form>
     </div>
 
-<div id="event2">
-  <% if @events.any?() %>
-     <h3>Here are all the listed events:</h3>
 
-
-<% if @events.any?() %>
-   <h3>Here are all the listed events:</h3>
-
-     <ul>
-       <% @events.each() do |event| %>
-         <li><a href="/admin/event_edit/<%= event.id()%>"><%= event.organization() %>,<%=event.event_name() %> </li>
-       <% end %>
-     </ul>
-
-
-     <% else %>
-       <p>There are no listed events </p>
-     <% end %>
-
-</div>

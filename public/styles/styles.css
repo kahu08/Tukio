@@ -215,7 +215,7 @@ select:focus {
 
 
 /*END*/
-#add_category, #add_event {
+#add_category, #add_event, #edit_event {
 	display: none;
 }
 
