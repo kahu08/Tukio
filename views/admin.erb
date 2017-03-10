@@ -1,3 +1,14 @@
+
+<form id="login" >
+
+    <label for="pass">Enter admin password</label>
+    <input id="pass" type="password" required>
+
+
+    <button type="submit">Login</button>
+  </form>
+
+
 <div>
 	<nav class="navbar navbar-default navbar-static-top">
 	  <div class="container-fluid">
@@ -58,9 +69,11 @@
 		</label>
 
 
+
         <div class="form-group">
           <label for="organization">Organization (sponsors)</label>
           <input type="text" name="organization" id="organization" placeholder="Organization" class="form-control" required/>
+
 
         </div> 
 
@@ -72,6 +85,7 @@
 				</div>  
 			</label> 
 		</div> 
+
 
 
 
@@ -122,16 +136,18 @@
       </form>
     </div>
 
+<div id="event2">
+  <% if @events.any?() %>
+     <h3>Here are all the listed events:</h3>
 
-<% if @events.any?() %>
-   <h3>Here are all the listed events:</h3>
+     <ul>
+       <% @events.each() do |event| %>
+         <li><a href="/admin/event_edit/<%= event.id()%>"><%= event.organization() %>,<%=event.event_name() %> </li>
+       <% end %>
+     </ul>
 
-   <ul>
-     <% @events.each() do |event| %>
-       <li><a href="/admin/event_edit/<%= event.id()%>"><%= event.organization() %>,<%=event.event_name() %> </li>
+     <% else %>
+       <p>There are no listed events </p>
      <% end %>
-   </ul>
 
-   <% else %>
-     <p>There are no listed events </p>
-   <% end %>
+</div>
