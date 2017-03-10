@@ -1,5 +1,4 @@
 
-
 <div>
 	<nav class="navbar navbar-default navbar-static-top">
 	  <div class="container-fluid">
@@ -24,6 +23,7 @@
 
 <form id="login" >
 
+
     <label for="pass">Enter admin password</label>
     <input id="pass" type="password" required>
 
@@ -44,12 +44,20 @@
 		<button>DELETE A CATEGORY</button>
 		<button>DELETE AN EVENT</button>
 	</div>
+
 </div>
+
+
 
 <div id="add_category">
 	<h2>ADD A NEW CATEGORY</h2>
 
+
 	<form action="/categories" method="post">
+
+
+
+	
 		<label>
 			<input type="text" id="categorie_name" name="categorie_name" required />
 			<div class="label-text">
@@ -83,6 +91,7 @@
 
 	<h2>ADD A NEW EVENT</h2>
 
+
 	<form class="event_form" action="/event" method="post">
 		
 		<label for="categorie_id">Select a category</label>
@@ -93,6 +102,8 @@
        </option>
        <%end%>
      </select>
+
+
 
 		<div class="form-group">
 			<label>
@@ -124,7 +135,9 @@
 
 		<div class="form-group">
 			<label>
+
 				<input type="text" name="fee" id="fee" required/>
+
 				<div class="label-text">
 					Fee
 				</div>
