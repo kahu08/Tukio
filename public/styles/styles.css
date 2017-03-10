@@ -344,6 +344,10 @@ select:focus {
 
 /*ADMIN PAGE*/
 
+#edit_event {
+    display: none;
+}
+
 .add_category_row {
     text-align: center;
 }

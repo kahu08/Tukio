@@ -61,8 +61,9 @@ post('/event')do
     erb(:admin)
   else
     erb(:errors)
-  end
+   end
 end
+
 
 get('/event/:id')do
 
@@ -74,7 +75,7 @@ post('/attendees')do
  name = params.fetch("name")
  number = params.fetch("number")
  event_id = params.fetch("event_id").to_i()
- attendee = Attendee.new({:name => name, :number => number, :event_id => event_id, :id => nil})
+ attendee = Attendee.new({:name => name, :number => number, })
  attendee.save()
  erb(:success)
 end
@@ -96,7 +97,7 @@ end
     erb(:event)
   else
     erb(:index)
-  end
+   end
 end
 
 delete("/event/edit/:id") do
