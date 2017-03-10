@@ -8,121 +8,123 @@
 	</form>
 <div class="admin-rights">
 
-<div class="row ">
-	<div class="add_category_row">
-		<h2>Categories</h2>
-		<button class="add_category">ADD A NEW CATEGORY</button>
+<div id=buttons1>
+	<div class="row butons1">
+		<div class="add_category_row">
+			<h2>Categories</h2>
+			<button class="add_category">ADD A NEW CATEGORY</button>
+		</div>
 	</div>
-</div>
 
-<div class="row">
-	<h2>Events</h2>
-	<div class="col-md-6 add">
-		<button class="add_event">ADD A NEW EVENT</button>
+	<div class="row">
+		<h2>Events</h2>
+		<div class="col-md-6 add">
+			<button class="add_event">ADD A NEW EVENT</button>
+		</div>
+		<div class="col-md-6 edit">
+			<button>EDIT EVENTS</button>
 	</div>
-	<div class="col-md-6 edit">
-		<button>EDIT EVENTS</button>
-</div>
 
-<div id="add_category">
-	<h2>ADD A NEW CATEGORY</h2>
+	<div id="add_category">
+		<h2>ADD A NEW CATEGORY</h2>
 
-	<form action="/categories" method="post">
+		<form action="/categories" method="post">
 
-		<label>
-			<input type="text" id="categorie_name" name="categorie_name" required />
-			<div class="label-text">
-				Name of the category:
+			<label>
+				<input type="text" id="categorie_name" name="categorie_name" required />
+				<div class="label-text">
+					Name of the category:
+				</div>
+			</label>
+			<button type="submit">Add Category</button>
+		</form>
+	</div>
+
+
+
+	<div id="add_event">
+
+		<h2>ADD A NEW EVENT</h2>
+
+
+		<form class="event_form" action="/event" method="post">
+
+			<label for="categorie_id">Select a category</label>
+	     <select id='categorie_id' class="" name="categorie_id" type="text">
+	       <%@categories.each() do |categorie|%>
+	       <option value="<%=categorie.id()%>">
+	       <%=categorie.categorie_name()%>
+	       </option>
+	       <%end%>
+	     </select>
+
+			<div class="form-group">
+				<label>
+					<input type="text" name="organization" id="organization" required/>
+					<div class="label-text">
+						Organization (sponsors)
+					</div>
+				</label>
 			</div>
-		</label>
-		<button type="submit">Add Category</button>
-	</form>
-</div>
+
+			<div class="form-group">
+				<label>
+					<input type="text" name="event_name" id="event_name" required/>
+					<div class="label-text">
+						Event Name
+					</div>
+				</label>
+			</div>
+
+			<div class="form-group">
+				<label>
+					<input type="text" name="location" id="location" required/>
+					<div class="label-text">
+						Location
+					</div>
+				</label>
+			</div>
 
 
+			<div class="form-group">
+				<label>
+					<input type="text" name="fee" id="fee" required/>
+					<div class="label-text">
+						Fee
+					</div>
+				</label>
+			</div>
 
-<div id="add_event">
-
-	<h2>ADD A NEW EVENT</h2>
-
-
-	<form class="event_form" action="/event" method="post">
-
-		<label for="categorie_id">Select a category</label>
-     <select id='categorie_id' class="" name="categorie_id" type="text">
-       <%@categories.each() do |categorie|%>
-       <option value="<%=categorie.id()%>">
-       <%=categorie.categorie_name()%>
-       </option>
-       <%end%>
-     </select>
-
-		<div class="form-group">
-			<label>
-				<input type="text" name="organization" id="organization" required/>
-				<div class="label-text">
-					Organization (sponsors)
-				</div>
-			</label>
-		</div>
-
-		<div class="form-group">
-			<label>
-				<input type="text" name="event_name" id="event_name" required/>
-				<div class="label-text">
-					Event Name
-				</div>
-			</label>
-		</div>
-
-		<div class="form-group">
-			<label>
-				<input type="text" name="location" id="location" required/>
-				<div class="label-text">
-					Location
-				</div>
-			</label>
-		</div>
+			<div class="form-group">
+				<label>
+					<input type="text" name="time" id="time" required/>
+					<div class="label-text">
+						Date and Time
+					</div>
+				</label>
+			</div>
 
 
-		<div class="form-group">
-			<label>
-				<input type="text" name="fee" id="fee" required/>
-				<div class="label-text">
-					Fee
-				</div>
-			</label>
-		</div>
+	        <button type="submit">Add Event</button>
+	      </form>
+	    </div>
 
-		<div class="form-group">
-			<label>
-				<input type="text" name="time" id="time" required/>
-				<div class="label-text">
-					Date and Time
-				</div>
-			</label>
-		</div>
+	<div id="edit_event">
+	<div class="all-events">
+		<% if @events.any?() %>
+	   <h2>Pick an event to edit:</h2>
 
+	   <ul>
+	     <% @events.each() do |event| %>
+	       <li><a href="/admin/event_edit/<%= event.id()%>"><%= event.organization() %>,<%=event.event_name() %> </li>
+	     <% end %>
+	   </ul>
 
-        <button type="submit">Add Event</button>
-      </form>
-    </div>
-
-<div id="edit_event">
-<div class="all-events">
-	<% if @events.any?() %>
-   <h2>Pick an event to edit:</h2>
-
-   <ul>
-     <% @events.each() do |event| %>
-       <li><a href="/admin/event_edit/<%= event.id()%>"><%= event.organization() %>,<%=event.event_name() %> </li>
-     <% end %>
-   </ul>
-
-   <% else %>
-     <p>There are no listed events </p>
-   <% end %>
- </div>
-</div>
-</div>
+	   <% else %>
+	     <p>There are no listed events </p>
+	   <% end %>
+	 </div>
+	</div>
+	</div>
+	</div>
 </div>
