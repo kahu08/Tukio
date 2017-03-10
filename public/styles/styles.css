@@ -1,3 +1,9 @@
+.content {
+    padding-top: 60px;
+    min-height: 420px;
+}
+
+
 /*success page*/
 
 .element {
@@ -72,7 +78,7 @@ body {
     margin: 20px;
 }
 
-#landing-page-text h1 {
+h1 {
     font-size: 100px;
     font-family: 'Carter One', cursive;
 }
@@ -119,6 +125,7 @@ h2 {
     border-bottom: 2px solid #067BC2;
     border-radius: 0;
     padding: 5px;
+    margin: 0;
 }
 
 
@@ -152,6 +159,91 @@ h2 {
     color: #555;
     background-color: #D5D5D5;
 }
+
+
+/*END*/
+
+
+/*INDEX PAGE STYLING*/
+
+.category p a {
+    color: white;
+}
+
+.category p a:hover {
+    color: #FF7F50;
+}
+
+.category p {
+    margin: 50px;
+    font-size: 40px;
+    box-shadow: 0 0 50px black;
+    width: 250px;
+    text-align: center;
+    float: left;
+    text-transform: capitalize;
+    background-color: #333;
+}
+
+.ion-folder {
+    color: #FF7F50;
+    font-size: 30px;
+}
+
+
+/*END*/
+
+
+/*EVENTS PAGE STYLING*/
+
+.events {
+    padding-top: 30px;
+}
+
+
+/* LIST #8 */
+
+#list8 {}
+
+#list8 ul {
+    list-style: none;
+}
+
+#list8 ul li {
+    font-family: Georgia, serif, Times;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+#list8 ul li a {
+    display: block;
+    width: 300px;
+    height: 50px;
+    background-color: #333;
+    border-left: 5px solid #222;
+    border-right: 5px solid #222;
+    padding-left: 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    border-top: 1px solid black;
+    font-weight: bolder;
+}
+
+#list8 ul li a:hover {
+    background-color: white;
+    color: #067BC2;
+    -moz-transform: rotate(-5deg);
+    -moz-box-shadow: 10px 10px 20px #000000;
+    -webkit-transform: rotate(-5deg);
+    -webkit-box-shadow: 10px 10px 20px #000000;
+    transform: rotate(-5deg);
+    box-shadow: 10px 10px 20px #000000;
+}
+
+
+/*END*/
 
 
 /*END*/
@@ -247,14 +339,14 @@ select:focus {
 }
 
 
-/*select {
-    border: 2px solid white;
-    border-radius: 27px;
-    padding: 10px 20px;
-}*/
-
-
 /*END*/
+
+
+/*ADMIN PAGE*/
+
+.add_category_row {
+    text-align: center;
+}
 
 #add_category, #add_event {
     display: none;
@@ -270,6 +362,11 @@ select:focus {
 
 .delete {
     text-align: center;
+}
+
+.all-events li {
+    font-size: 30px;
+    text-transform: capitalize;
 }
 
 

@@ -1,35 +1,21 @@
-<div>
-	<nav class="navbar navbar-default navbar-static-top">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="/">Tukio</a>
-	    </div>
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="/events">Events</a></li>
-	        <li><a href="/admin">Admin</a></li>
-	      </ul>
-	    </div>
-	  </div>
-	</nav>
-</div>
-<div class="row">
-	<div class="col-md-4 add">
+<div class="container">
+
+<div class="row ">
+	<div class="add_category_row">
+		<h2>Categories</h2>
 		<button class="add_category">ADD A NEW CATEGORY</button>
+	</div>
+</div>
+
+<div class="row">
+	<h2>Events</h2>
+	<div class="col-md-4 add">
 		<button class="add_event">ADD A NEW EVENT</button>
 	</div>
 	<div class="col-md-4 edit">
-		<button>EDIT CATEGORIES</button><br>
 		<button>EDIT EVENTS</button>
 	</div>
 	<div class="col-md-4 delete">
-		<button>DELETE A CATEGORY</button>
 		<button>DELETE AN EVENT</button>
 	</div>
 </div>
@@ -53,24 +39,15 @@
 	<h2>ADD A NEW EVENT</h2>
 
 	<form class="event_form" action="/event" method="post">
-		<label for="categorie_id">
-		</label>
-<<<<<<< HEAD
 
-
-        <div class="form-group">
-          <label for="organization">Organization (sponsors)</label>
-          <input type="text" name="organization" id="organization" placeholder="Organization" class="form-control" required/>
-
-        </div>
-=======
-		    <select>
-		      <option value="" disabled selected>Choose your category</option>
-		    	<% @categories.each() do |category|%>
-		     	<option value="<% category.id() %>"><%= category.categorie_name()%></option>
-		      <% end %>
-		    </select>
->>>>>>> 9af5abe8b3fe858f8946e05cda02a69acde20801
+		<label for="categorie_id">Select a category</label>
+     <select id='categorie_id' class="" name="categorie_id" type="text">
+       <%@categories.each() do |categorie|%>
+       <option value="<%=categorie.id()%>">
+       <%=categorie.categorie_name()%>
+       </option>
+       <%end%>
+     </select>
 
 		<div class="form-group">
 			<label>
@@ -102,7 +79,7 @@
 
 		<div class="form-group">
 			<label>
-				<input type="text" name="fee" id="fee" required/>   
+				<input type="text" name="fee" id="fee" required/>
 				<div class="label-text">
 					Fee
 				</div>
@@ -123,9 +100,9 @@
       </form>
     </div>
 
-
-<% if @events.any?() %>
-   <h3>Here are all the listed events:</h3>
+<div class="all-events">
+	<% if @events.any?() %>
+   <h2>Here are all the listed events:</h2>
 
    <ul>
      <% @events.each() do |event| %>
@@ -136,3 +113,5 @@
    <% else %>
      <p>There are no listed events </p>
    <% end %>
+ </div>
+</div>
