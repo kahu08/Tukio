@@ -1,19 +1,30 @@
+<!-- further details of the event -->
 Name: <%= @event.event_name() %><br>
 Organization: <%= @event.organization() %><br>
 Location: <%= @event.location() %><br>
 Time: <%= @event.time() %><br>
 Ticket: <%= @event.fee() %><br>
 
-<form class="" action="/attendees" method="post">
+<!-- form for an attendee -->
+<div class="forms">
+    <form action="/attendees" method="post">
 
- <input name="event_id" id="event_id" type="hidden" value="<%= @event.id()%>">
+        <input name="event_id" id="event_id" type="hidden" value="<%= @event.id()%>">
 
- <label for="name">Your Name:</label>
-   <input type="text" id="name"  name="name" required/>
+        <label>
+            <input type="text" id="name" name="name" required/>
+            <div class="label-text">
+                Your Name
+            </div>
+        </label>
 
-<label for="number">Phone Number:</label>
-   <input type="number" id="number" name="number" required/>
+        <label>
+            <input type="text" id="name" name="name" required/>
+            <div class="label-text">
+                Phone Number
+            </div>
+        </label>
+        <button type="submit">Submit</button>
 
-<button type="submit">Submit</button>
-
-</form>
+    </form>
+</div>

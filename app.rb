@@ -10,7 +10,6 @@ require("pg")
 
 
 
-
 get("/") do
   @category = Categorie.all()
   erb(:index)
