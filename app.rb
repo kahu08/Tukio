@@ -8,7 +8,7 @@ also_reload('lib/**/*.rb')
 require("pg")
 require('active_record')
 
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/event_development')
 
 
 
