@@ -10,7 +10,6 @@ require("pg")
 
 
 
-
 get("/") do
   @category = Categorie.all()
   erb(:index)
@@ -75,7 +74,7 @@ post('/attendees')do
  name = params.fetch("name")
  number = params.fetch("number")
  event_id = params.fetch("event_id").to_i()
- attendee = Attendee.new({:name => name, :number => number, })
+ attendee = Attendee.new({:name => name, :number => number, :event_id => event_id})
  attendee.save()
  erb(:success)
 end
@@ -88,6 +87,7 @@ end
 
 
  patch("/event/edit/:id") do
+   @event = Event.find(params.fetch("id").to_i())
    organization = params.fetch("organization")
    event_name = params.fetch("event_name")
    location = params.fetch("location")

@@ -6,7 +6,7 @@
 		<ul>
 			<% @events.each() do |event| %>
 
-			<li><a href="/events/<%= event.id()%>"><%= event.event_name() %> </a></li>
+			<li><a href="/event/<%= event.id()%>"><%= event.event_name() %> </a></li>
 
 			<% end %>
 		</ul>
