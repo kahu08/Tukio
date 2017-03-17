@@ -3,7 +3,7 @@ Name: <%= @event.event_name() %><br>
 Organization: <%= @event.organization() %><br>
 Location: <%= @event.location() %><br>
 Time: <%= @event.time() %><br>
-Ticket: <%= @event.fee() %><br>
+Ticket:Ksh. <%= @event.fee() %><br>
 
 <!-- form for an attendee -->
 <div class="forms">
@@ -19,7 +19,7 @@ Ticket: <%= @event.fee() %><br>
         </label>
 
         <label>
-            <input type="text" id="name" name="name" required/>
+            <input type="text" id="number" name="number" required/>
             <div class="label-text">
                 Phone Number
             </div>
