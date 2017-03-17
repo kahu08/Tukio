@@ -6,7 +6,9 @@ require('./lib/attendee')
 require('./lib/categorie')
 also_reload('lib/**/*.rb')
 require("pg")
+require('active_record')
 
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/event_development')
 
 
 
@@ -101,14 +103,20 @@ end
 end
 
 delete("/event/edit/:id") do
-    @event = Event.find(params.fetch("id").to_i())
-    @event.delete()
-    @categories = Categorie.all()
-    @events = Event.all()
-    erb(:admin)
-  end
+  @event = Event.find(params.fetch("id").to_i())
+  @event.delete()
+  @categories = Categorie.all()
+  @events = Event.all()
+  erb(:admin)
+end
 
-  get("/event/editted/:id")do
-   @event = Event.find(params.fetch("id").to_i())
-   erb(:event)
-  end
+get("/event/editted/:id")do
+  @event = Event.find(params.fetch("id").to_i())
+  erb(:event)
+end
+
+after do
+  # Close the connection after the request is done so that we don't
+  # deplete the ActiveRecord connection pool.
+  ActiveRecord::Base.connection.close
+end
