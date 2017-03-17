@@ -1,5 +1,18 @@
-Event: <%= @events.event_name() %><br>
-Organizers(sponsors): <%= @events.organization() %><br>
-Date/Time: <%= @events.time() %><br>
-Location: <%= @events.location() %><br>
-Fees: <%= @events.fee() %><br>
+<% if @event.attendees().any?() %>
+   <h3>Here are all the attendee for event:<%= @event.event_name() %> </h3>
+
+   <ul>
+     <% @event.attendees().each() do |attendee| %>
+       <li><%= attendee.name() %>,<%=attendee.number() %> </li>
+     <% end %>
+   </ul>
+
+<% else %>
+     <p>There are no attendees for <%= @event.event_name() %>!</p>
+   <% end %>
+
+Name: <%= @event.event_name() %>
+Organization: <%= @event.organization() %>
+location: <%= @event.location() %>
+Date/Time: <%= @event.time() %>
+Ticket:Ksh. <%= @event.fee() %>

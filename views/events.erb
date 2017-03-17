@@ -1,14 +1,22 @@
+<div class="events">
 
-<% if @events.any?() %>
+	<% if @events.any?() %>
+	<div id="list8">
+		<h2>Upcoming Events:</h2>
+		<ul>
+			<% @events.each() do |event| %>
 
-    <ul>
-      <% @events.each() do |event| %>
-      <li><a href="/events/<%= event.id()%>"><li><%= event.event_name() %> </a></li>
-      <% end %>
-    </ul>
+			<li><a href="/event/<%= event.id()%>"><%= event.event_name() %> </a></li>
 
-    <% else %>
+			<% end %>
+		</ul>
 
-          <p>There are no lists yet!</p>
 
-      <% end %>
+		<% else %>
+
+		<p>There are no events yet!</p>
+
+		<% end %>
+	</div>
+
+</div>

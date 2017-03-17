@@ -1,8 +1,12 @@
-<form action="/categories" method="post">
+<h2>ADD A NEW CATEGORY</h2> 
 
-    <label for="categorie_name">Name of the category:</label>
-    <input id="categorie_name" name="categorie_name" type="text">
-
-
-    <button type="submit">Add Category</button>
-  </form>
+<div class="forms">
+	<form action="/categories" method="post">
+		<label>
+			<input type="text" id="categorie_name" name="categorie_name" required />
+			<div class="label-text">Name of the category:
+			</div>
+		</label>
+		<button>Submit</button>
+	</form>
+</div>

@@ -1,0 +1,50 @@
+<div id="landing-page">
+	<div id="landing-page-text">
+		<div class="trial">
+			<h1>TUKIO</h1>
+			<h3>Your realtime event organizer</h3>
+			<br>
+			<p><span class="glyphicon glyphicon-menu-down"></span></p>
+		</div>
+	</div>
+
+	  <div id="carousel" class="carousel slide" data-ride="carousel">
+
+	    <!-- Wrapper for slides -->
+	    <div class="carousel-inner" role="listbox">
+	      <div class="item active image1">
+	      </div>
+	      <div class="item image2">
+
+	      </div>
+	      <div class="item image3">
+	      </div>
+	    </div>
+	  </div>
+
+</div>
+<div class="container">
+
+
+<div class="categories">
+	<h1>All Categories:</h1>
+
+
+	  <% if @category.any?() %>
+	    <h3>Here are your categories:</h3>
+			<div class="row">
+
+	      <% @category.each() do |category| %>
+				<div class="col-md 4 category">
+					<p><span class="ion ion-folder"></span> <a href="/categories/<%= category.id()%>"><%= category.categorie_name() %></a> </p>
+				</div>
+	      <% end %>
+			</div>
+
+	  <% else %>
+
+	      <p>There are no categories yet!</p>
+
+	  <% end %>
+</div>
+</div>
