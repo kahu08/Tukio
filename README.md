@@ -1,22 +1,6 @@
 ## Tukio
 The app is an event organizer that enables an admin to add events according to categories. users can then sign up to the events
 
-### Installation
-Clone repository
-Login to heroku - follow the propmt instructions
-Create an app from the terminal
-Deploy your app to heroku
-Load db schema
-
-```bash
-git clone https://github.com/kahu08/Tukio.git
-cd Tukio
-bundle install
-heroku login
-heroku create <app_name>
-heroku push
-heroku rake db:schema:load
-```
 
 #### Built with
 * Sinatra 
